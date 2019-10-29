@@ -214,7 +214,7 @@
         				break;
 
         			case 'addressField': 
-        				if ( this.phone === '' ) {
+        				if ( this.address === '' ) {
         					this.errors.push('address');   						
         				} else {
         					this.errors = this.errors.filter( item => item !== 'address');        					

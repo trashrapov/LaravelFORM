@@ -2098,7 +2098,7 @@ __webpack_require__.r(__webpack_exports__);
           break;
 
         case 'addressField':
-          if (this.phone === '') {
+          if (this.address === '') {
             this.errors.push('address');
           } else {
             this.errors = this.errors.filter(function (item) {
