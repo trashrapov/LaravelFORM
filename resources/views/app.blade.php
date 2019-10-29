@@ -34,7 +34,7 @@
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
                             <router-link class="nav-link" to="/" exact>
-                                Home
+                                Form
                             </router-link>
                         </li>
                         <li class="nav-item">

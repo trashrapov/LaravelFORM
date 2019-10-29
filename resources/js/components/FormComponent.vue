@@ -15,13 +15,14 @@
 		    	<label for="name">Name</label>
 		    	<input 
 		    		type="text" 
+                    name="name"
 		    		class="form-control" 		    		
 		    		placeholder="Name" 
 		    		v-model="name" 	
 		    		v-on:blur="check('nameField')"
 					v-bind:class="{ 'is-invalid' : errors.includes('name')}"		
 		    	>
-		    	<div class="invalid-feedback">Name field is required!</div>
+		    	<div id="nameError" class="invalid-feedback">Name field is required!</div>
 		    	<div 
 		    		v-if="serverErrors.hasOwnProperty('name')" 	    		
 		    	><small class="text-danger">{{serverErrors['name'][0]}}</small></div>
@@ -31,6 +32,7 @@
 		    	<label for="name">Email</label>
 		    	<input 
 		    		type="email" 
+                    name="email"                   
 		    		class="form-control" 		    		
 		    		placeholder="Email" 
 		    		v-model="email" 
@@ -38,7 +40,7 @@
 					v-bind:class="{ 'is-invalid' : errors.includes('email')}"
 					required
 		    	>
-		    	 <div class="invalid-feedback">Email field is reqired! Please type valid email address!</div>
+		    	 <div id="emailError" class="invalid-feedback">Email field is required! Please type valid email address!</div>
 		    	 <div 
 		    		v-if="serverErrors.hasOwnProperty('email')" 	    		
 		    	><small class="text-danger">{{serverErrors['email'][0]}}</small></div>
@@ -49,13 +51,14 @@
 		    	<input 
 		    		type="text" 
 		    		id="phone"
+                    name="phone"
 		    		class="form-control" 		    		
 		    		placeholder="Phone number" 
 		    		v-model="phone" 		    		
 					v-on:blur="check('phoneField')"
 					v-bind:class="{ 'is-invalid' : errors.includes('phone')}"
 		    	>
-		    	<div class="invalid-feedback">Phone field is required!</div>
+		    	<div id="phoneError" class="invalid-feedback">Phone field is required!</div>
 		    	<div 
 		    		v-if="serverErrors.hasOwnProperty('phone')" 	    		
 		    	><small class="text-danger">{{serverErrors['phone'][0]}}</small></div>
@@ -65,13 +68,14 @@
 		    	<label for="name">Address</label>
 		    	<input 
 		    		type="text" 
+                    name="address"
 		    		class="form-control" 		    		
 		    		placeholder="Address" 
 		    		v-model="address"		    		
 		    		v-on:blur="check('addressField')"
 					v-bind:class="{ 'is-invalid' : errors.includes('address')}"
 		    	>
-		    	<div class="invalid-feedback">Address field is required!</div>
+		    	<div id="addressError" class="invalid-feedback">Address field is required!</div>
 		    	<div 
 		    		v-if="serverErrors.hasOwnProperty('address')" 	    		
 		    	><small class="text-danger">{{serverErrors['address'][0]}}</small></div>
@@ -82,13 +86,14 @@
 		    	<input 
 		    		type="text" 
 		    		id="zipCode"
+                    name="zipCode"
 		    		class="form-control"		    		
 		    		placeholder="Zip code" 
 		    		v-model="zipCode"				
 					v-on:blur="check('zipCodeField')"
 					v-bind:class="{ 'is-invalid' : errors.includes('zipCode')}"
 		    	>
-		    	<div class="invalid-feedback">ZipCode field is required!</div>
+		    	<div id="zipCodeError" class="invalid-feedback">ZipCode field is required!</div>
 		    	<div 
 		    		v-if="serverErrors.hasOwnProperty('zipCode')" 	    		
 		    	><small class="text-danger">{{serverErrors['zipCode'][0]}}</small></div>
@@ -96,13 +101,14 @@
 		  	<div class="custom-file">
 			  	<input 
 			  		type="file" 
+                    name="file"
 			  		class="custom-file-input" 
 			  		id="fileInput"
 		    		@change="check('fileField')"
 					v-bind:class="{ 'is-invalid' : errors.includes('file')}"								
 			  	>
 			  	<label class="custom-file-label" for="fileInput">{{fileName}}</label>
-			  	<div class="invalid-feedback">File field is required! Please select valid file! Supported formats: jpeg, png, gif, pdf, doc</div>
+			  	<div id="fileError" class="invalid-feedback">File field is required! Please select valid file! Supported formats: jpeg, png, gif, pdf, doc</div>
 			  	<div 
 		    		v-if="serverErrors.hasOwnProperty('file')" 	    		
 		    	><small class="text-danger">{{serverErrors['file'][0]}}</small></div>
@@ -110,6 +116,7 @@
 
 		  	<button 
 		  		type="submit" 
+                id="submitButton"
 		  		class="btn btn-block btn-primary mt-4"
 		  		@click.prevent="sendData"
 		  	>Submit</button>

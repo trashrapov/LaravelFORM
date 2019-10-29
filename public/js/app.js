@@ -1852,6 +1852,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {//console.log('Component mounted.')
   }
@@ -1868,6 +1870,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -28701,19 +28710,40 @@ var staticRenderFns = [
           staticClass: "col-12 col-sm-8 border rounded m-0 mx-auto p-1 p-sm-4"
         },
         [
-          _c("h4", { staticClass: "py-2 text-center" }, [_vm._v("WebFORM")]),
+          _c("h4", { staticClass: "py-2 text-center" }, [
+            _c("b", [_vm._v("WebFORM")])
+          ]),
           _vm._v(" "),
           _c("ul", { staticClass: "list-group" }, [
             _c("li", { staticClass: "list-group-item" }, [
-              _vm._v("SPA: Laravel + VueJS + VueRouter + Bootstrap 4")
+              _c("b", [
+                _vm._v("SPA: Laravel + VueJS + VueRouter + Bootstrap 4")
+              ])
             ]),
             _vm._v(" "),
             _c("li", { staticClass: "list-group-item" }, [
-              _vm._v("Frontend form validation")
+              _c("b", [_vm._v("Frontend form validation.")]),
+              _vm._v(
+                " Highlighting and displaying messages under input fields if values not valid"
+              )
             ]),
             _vm._v(" "),
             _c("li", { staticClass: "list-group-item" }, [
-              _vm._v("Backend request data validation")
+              _c("b", [_vm._v("Backend request data validation.")]),
+              _vm._v(
+                " Message will be displayed in frontend if validation fails"
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "list-group-item" }, [
+              _c("b", [
+                _vm._v("On successful frontend and backend validation")
+              ]),
+              _vm._v(" saving file to storage and creating database record")
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "list-group-item" }, [
+              _c("b", [_vm._v("Testing form page with Dusk")])
             ])
           ])
         ]
@@ -28775,7 +28805,7 @@ var render = function() {
             ],
             staticClass: "form-control",
             class: { "is-invalid": _vm.errors.includes("name") },
-            attrs: { type: "text", placeholder: "Name" },
+            attrs: { type: "text", name: "name", placeholder: "Name" },
             domProps: { value: _vm.name },
             on: {
               blur: function($event) {
@@ -28790,9 +28820,11 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "invalid-feedback" }, [
-            _vm._v("Name field is required!")
-          ]),
+          _c(
+            "div",
+            { staticClass: "invalid-feedback", attrs: { id: "nameError" } },
+            [_vm._v("Name field is required!")]
+          ),
           _vm._v(" "),
           _vm.serverErrors.hasOwnProperty("name")
             ? _c("div", [
@@ -28817,7 +28849,12 @@ var render = function() {
             ],
             staticClass: "form-control",
             class: { "is-invalid": _vm.errors.includes("email") },
-            attrs: { type: "email", placeholder: "Email", required: "" },
+            attrs: {
+              type: "email",
+              name: "email",
+              placeholder: "Email",
+              required: ""
+            },
             domProps: { value: _vm.email },
             on: {
               blur: function($event) {
@@ -28832,9 +28869,15 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "invalid-feedback" }, [
-            _vm._v("Email field is reqired! Please type valid email address!")
-          ]),
+          _c(
+            "div",
+            { staticClass: "invalid-feedback", attrs: { id: "emailError" } },
+            [
+              _vm._v(
+                "Email field is required! Please type valid email address!"
+              )
+            ]
+          ),
           _vm._v(" "),
           _vm.serverErrors.hasOwnProperty("email")
             ? _c("div", [
@@ -28859,7 +28902,12 @@ var render = function() {
             ],
             staticClass: "form-control",
             class: { "is-invalid": _vm.errors.includes("phone") },
-            attrs: { type: "text", id: "phone", placeholder: "Phone number" },
+            attrs: {
+              type: "text",
+              id: "phone",
+              name: "phone",
+              placeholder: "Phone number"
+            },
             domProps: { value: _vm.phone },
             on: {
               blur: function($event) {
@@ -28874,9 +28922,11 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "invalid-feedback" }, [
-            _vm._v("Phone field is required!")
-          ]),
+          _c(
+            "div",
+            { staticClass: "invalid-feedback", attrs: { id: "phoneError" } },
+            [_vm._v("Phone field is required!")]
+          ),
           _vm._v(" "),
           _vm.serverErrors.hasOwnProperty("phone")
             ? _c("div", [
@@ -28901,7 +28951,7 @@ var render = function() {
             ],
             staticClass: "form-control",
             class: { "is-invalid": _vm.errors.includes("address") },
-            attrs: { type: "text", placeholder: "Address" },
+            attrs: { type: "text", name: "address", placeholder: "Address" },
             domProps: { value: _vm.address },
             on: {
               blur: function($event) {
@@ -28916,9 +28966,11 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "invalid-feedback" }, [
-            _vm._v("Address field is required!")
-          ]),
+          _c(
+            "div",
+            { staticClass: "invalid-feedback", attrs: { id: "addressError" } },
+            [_vm._v("Address field is required!")]
+          ),
           _vm._v(" "),
           _vm.serverErrors.hasOwnProperty("address")
             ? _c("div", [
@@ -28943,7 +28995,12 @@ var render = function() {
             ],
             staticClass: "form-control",
             class: { "is-invalid": _vm.errors.includes("zipCode") },
-            attrs: { type: "text", id: "zipCode", placeholder: "Zip code" },
+            attrs: {
+              type: "text",
+              id: "zipCode",
+              name: "zipCode",
+              placeholder: "Zip code"
+            },
             domProps: { value: _vm.zipCode },
             on: {
               blur: function($event) {
@@ -28958,9 +29015,11 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "invalid-feedback" }, [
-            _vm._v("ZipCode field is required!")
-          ]),
+          _c(
+            "div",
+            { staticClass: "invalid-feedback", attrs: { id: "zipCodeError" } },
+            [_vm._v("ZipCode field is required!")]
+          ),
           _vm._v(" "),
           _vm.serverErrors.hasOwnProperty("zipCode")
             ? _c("div", [
@@ -28975,7 +29034,7 @@ var render = function() {
           _c("input", {
             staticClass: "custom-file-input",
             class: { "is-invalid": _vm.errors.includes("file") },
-            attrs: { type: "file", id: "fileInput" },
+            attrs: { type: "file", name: "file", id: "fileInput" },
             on: {
               change: function($event) {
                 return _vm.check("fileField")
@@ -28989,11 +29048,15 @@ var render = function() {
             [_vm._v(_vm._s(_vm.fileName))]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "invalid-feedback" }, [
-            _vm._v(
-              "File field is required! Please select valid file! Supported formats: jpeg, png, gif, pdf, doc"
-            )
-          ]),
+          _c(
+            "div",
+            { staticClass: "invalid-feedback", attrs: { id: "fileError" } },
+            [
+              _vm._v(
+                "File field is required! Please select valid file! Supported formats: jpeg, png, gif, pdf, doc"
+              )
+            ]
+          ),
           _vm._v(" "),
           _vm.serverErrors.hasOwnProperty("file")
             ? _c("div", [
@@ -29008,7 +29071,7 @@ var render = function() {
           "button",
           {
             staticClass: "btn btn-block btn-primary mt-4",
-            attrs: { type: "submit" },
+            attrs: { type: "submit", id: "submitButton" },
             on: {
               click: function($event) {
                 $event.preventDefault()
